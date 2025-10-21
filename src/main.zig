@@ -76,7 +76,6 @@ const argsPaser = struct {
     content: []const u8 = "",
 
     hashFunc: hashFuncCmd,
-    helpInfo: bool = false,
 
     const Self = @This();
     fn init(allocator: Allocator, _hashFunc: hashFuncCmd) Self {
@@ -123,9 +122,6 @@ const argsPaser = struct {
 
             if (std.mem.eql(u8, key, "sourceFormat") or std.mem.eql(u8, key, "s")) {
                 self.sourceFormat = sourceFormat.fromStringCaseInsensitive(value);
-            }
-            if (std.mem.eql(u8, key, "help") or std.mem.eql(u8, key, "h")) {
-                self.helpInfo = true;
             }
         }
 
